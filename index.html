@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Terminal Hacker</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: black;
+      color: #00ff00;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 16px;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    #terminal {
+      padding: 20px;
+      white-space: pre-wrap;
+      height: 100%;
+      box-sizing: border-box;
+    }
+
+    .piscar {
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div id="terminal"></div>
+
+  <!-- Áudio de digitação -->
+  <audio id="digitar" src="https://www.soundjay.com/keyboard/sounds/keyboard-1.mp3" preload="auto"></audio>
+
+  <script>
+    const terminal = document.getElementById('terminal');
+    const audio = document.getElementById('digitar');
+
+    const linhas = [
+      "Conectando ao servidor 192.168.0.1...",
+      "Acesso concedido.",
+      "Iniciando download de dados confidenciais...",
+      "Extraindo arquivos secretos...",
+      "Bypassing firewall...",
+      "Instalando rootkit...",
+      "Enviando pacotes para 127.0.0.1...",
+      "Criptografando arquivos...",
+      "Processo completo. Sistema comprometido.",
+      "Desligando rastreamento...",
+      "Feito! :)"
+    ];
+
+    let i = 0;
+
+    function mostrarLinha() {
+      if (i < linhas.length) {
+        terminal.innerHTML += linhas[i] + '\n';
+        audio.currentTime = 0;
+        audio.play();
+        i++;
+        setTimeout(mostrarLinha, 800);
+      } else {
+        terminal.innerHTML += '\n>> <span class="piscar">Pressione qualquer tecla para sair...</span>';
+      }
+    }
+
+    // Tela cheia automática ao abrir
+    document.addEventListener("DOMContentLoaded", () => {
+      const elem = document.documentElement;
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+      }
+      mostrarLinha();
+    });
+
+    // Fechar a aba ao pressionar qualquer tecla
+    document.addEventListener('keydown', () => {
+      window.close(); // funciona apenas em abas abertas via JavaScript
+    });
+  </script>
+</body>
+</html>
