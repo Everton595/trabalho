@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Alerta Crítico!</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: rgb(7, 7, 7);
+      color: white;
+      font-family: 'Courier New', Courier, monospace;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 4em;
+      margin: 0.5em 0;
+      animation: piscar 0.8s infinite;
+    }
+
+    p, #contador {
+      font-size: 2em;
+      margin: 0.5em;
+    }
+
+    #explosao {
+      display: none;
+      font-size: 3em;
+      color: yellow;
+      margin-top: 20px;
+    }
+
+    @keyframes piscar {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <h1>🚨 VOCÊ FOI HACKEADO! 🚨</h1>
+  <p>Todos os seus dados foram comprometidos.</p>
+  <p>Seu dispositivo irá explodir em:</p>
+  <div id="contador">15</div>
+  <div id="explosao">💥 BOOOOOM! 💥</div>
+
+  <!-- Sons -->
+  <audio id="alarme" src="https://www.soundjay.com/misc/sounds/bell-ringing-05.mp3" autoplay loop></audio>
+  <audio id="boom" src="https://www.soundjay.com/explosion/explosion-01.mp3" preload="auto"></audio>
+
+  <script>
+    let tempo = 15;
+    const contador = document.getElementById('contador');
+
+    const intervalo = setInterval(() => {
+      tempo--;
+      contador.textContent = tempo;
+
+      if (tempo <= 0) {
+        clearInterval(intervalo);
+        document.getElementById('alarme').pause();
+        document.getElementById('boom').play();
+        document.body.style.background = 'black';
+        document.querySelector('h1').style.display = 'none';
+        document.querySelectorAll('p').forEach(p => p.style.display = 'none');
+        contador.style.display = 'none';
+        document.getElementById('explosao').style.display = 'block';
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
