@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Dispositivo Conectado</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #0f0;
+      font-family: "Courier New", monospace;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .terminal {
+      background-color: #111;
+      padding: 20px;
+      border: 2px solid #0f0;
+      border-radius: 10px;
+      max-width: 800px;
+      margin: 40px auto;
+      box-shadow: 0 0 20px #0f0;
+      text-align: left;
+    }
+
+    .typing {
+      white-space: pre-wrap;
+      overflow: hidden;
+      border-right: .15em solid #0f0;
+      animation: typing 5s steps(40, end), blink .75s step-end infinite;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    @keyframes blink {
+      from, to { border-color: transparent }
+      50% { border-color: #0f0; }
+    }
+  </style>
+</head>
+<body>
+  <h1>📱 Dispositivo Conectado(daiane) com Sucesso</h1>
+
+  <div class="terminal">
+    <p class="typing">
+🔗 Sincronizado com o smartphone...
+✔️ Conexão via USB estabelecida.
+📂 Acessando arquivos pessoais...
+📸 Fotos: xxxx imagens encontradas.
+📞 Histórico de chamadas: xxx registros.
+💬 Mensagens: xxxx conversas lidas.
+📍 Localização GPS atual: -23.5505, -46.6333
+📱 Clonagem feita com sucesso...
+🔓 Acesso total concedido!
+⚠️ Todos os dados foram transferidos com sucesso.
+💣 Desconectar agora pode causar perda total do dispositivo.
+📲 Espelhar tela do dispositivo conectado
+🎤 acessar cameras e microfone do dispositivo
+🔒 Proteção contra desconexão ativada.
+<br>
+<input type="text" placeholder="Digite 'conectar' para iniciar" id="inputconectar">
+    </p>
+  </div>
+  <audio autoplay loop>
+    <source src="https://www.soundjay.com/misc/sounds/fake-beep-01a.mp3" type="audio/mpeg">
+  </audio>
+</body>
+</html>
