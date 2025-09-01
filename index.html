@@ -1,261 +1,108 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Bahea Lava-Rápido | Lavagem Profissional</title>
-  <meta name="description" content="Bahea Lava-Rápido – Lavagem automotiva profissional. Lavada simples, detalhada e serviços para motos. Azul e branco, atendimento sério." />
+  <meta charset="UTF-8">
+  <title>Você ganhou na Mega-Sena!</title>
   <style>
-    :root{
-      --brand:#0d47a1;       /* azul principal */
-      --brand-600:#1565c0;   /* variação */
-      --brand-100:#e3f2fd;   /* azul bem claro */
-      --bg:#ffffff;          /* branco */
-      --text:#0b1b2b;        /* texto principal */
-      --muted:#5a6b7b;       /* texto secundário */
-      --ring: rgba(21,101,192,.25);
-      --radius: 16px;
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background: radial-gradient(circle, #000000, #111111, #222222);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: gold;
+      font-family: Arial, sans-serif;
+      text-align: center;
     }
 
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-      color:var(--text);
-      background:var(--bg);
-      line-height:1.6;
+    h1 {
+      font-size: 3em;
+      animation: brilho 2s infinite alternate;
     }
 
-    /* Cabeçalho */
-    header{
-      position:sticky; top:0; z-index:50;
-      backdrop-filter:saturate(1.2) blur(8px);
-      background:linear-gradient(180deg, rgba(255,255,255,.95), rgba(255,255,255,.75));
-      border-bottom:1px solid rgba(13,71,161,.08);
+    @keyframes brilho {
+      from { text-shadow: 0 0 10px gold; }
+      to   { text-shadow: 0 0 30px orange, 0 0 50px red; }
     }
-    .nav{
-      max-width:1100px; margin:0 auto; padding:12px 20px;
-      display:flex; align-items:center; justify-content:space-between; gap:16px;
-    }
-    .brand{display:flex; align-items:center; gap:12px; text-decoration:none}
-    .logo{
-      width:42px; height:42px; border-radius:12px; background:var(--brand);
-      display:grid; place-items:center; color:#fff; font-weight:800; letter-spacing:.5px;
-      box-shadow:0 6px 14px rgba(13,71,161,.25);
-    }
-    .brand h1{font-size:1.05rem; margin:0}
-    .brand small{display:block; color:var(--muted); font-weight:500; margin-top:-2px}
-    .nav a.link{color:var(--brand); text-decoration:none; font-weight:600}
-    .nav a.link:hover{opacity:.9}
-    .cta{
-      display:inline-flex; align-items:center; gap:10px; text-decoration:none; font-weight:700;
-      background:var(--brand); color:#fff; padding:10px 16px; border-radius:999px;
-      box-shadow:0 8px 24px rgba(13,71,161,.25);
-    }
-    .cta:hover{background:var(--brand-600)}
 
-    /* Hero */
-    .hero{
-      background: radial-gradient(1200px 600px at 60% -10%, var(--brand-100), #ffffff 60%);
-      border-bottom:1px solid rgba(13,71,161,.08);
-    }
-    .hero-inner{max-width:1100px; margin:0 auto; padding:48px 20px 36px; display:grid; grid-template-columns:1.2fr .8fr; gap:24px}
-    .hero h2{font-size:clamp(1.6rem, 2.4vw + 1rem, 2.6rem); line-height:1.15; margin:0 0 10px}
-    .hero p{color:var(--muted); margin:0 0 18px; font-size:1.05rem}
-    .badges{display:flex; gap:10px; flex-wrap:wrap}
-    .badge{background:#fff; border:1px solid rgba(13,71,161,.12); padding:8px 12px; border-radius:999px; font-weight:600}
-    .hero-card{
-      background:#fff; border:1px solid rgba(13,71,161,.12); border-radius:var(--radius);
-      padding:18px; box-shadow:0 10px 30px rgba(13,71,161,.12);
-    }
-    .hero-card h3{margin:0 0 8px; font-size:1.1rem}
-    .hours{display:grid; grid-template-columns:1fr auto; gap:8px; font-weight:600}
-    .hours span{color:var(--muted); font-weight:500}
-
-    /* Seções */
-    section{max-width:1100px; margin:0 auto; padding:40px 20px}
-    .section-title{font-size:1.6rem; margin:0 0 12px}
-    .section-sub{color:var(--muted); margin:0 0 20px}
-
-    /* Tabela de preços */
-    .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
-    .card{
-      background:#fff; border:1px solid rgba(13,71,161,.12); border-radius:var(--radius);
-      padding:20px; box-shadow:0 8px 24px rgba(13,71,161,.08);
-    }
-    .card h4{margin:0 0 6px; font-size:1.1rem}
-    .price{font-size:1.6rem; font-weight:800; color:var(--brand); margin:6px 0 12px}
-    .card ul{margin:0; padding-left:18px; color:var(--muted)}
-
-    /* Contato */
-    .contact{
-      display:grid; grid-template-columns:1.2fr .8fr; gap:20px;
-    }
-    .panel{background:#fff; border:1px solid rgba(13,71,161,.12); border-radius:var(--radius); padding:20px}
-    label{display:block; font-weight:600; margin:8px 0 4px}
-    input, textarea{
-      width:100%; padding:12px 14px; border-radius:12px; border:1px solid rgba(13,71,161,.25);
-      outline: none; font: inherit; color:inherit; background:#fff;
-    }
-    input:focus, textarea:focus{box-shadow:0 0 0 6px var(--ring); border-color:var(--brand)}
-    textarea{min-height:120px; resize:vertical}
-    button{
-      display:inline-flex; align-items:center; gap:10px; font-weight:800;
-      background:var(--brand); color:#fff; padding:12px 16px; border:none; border-radius:12px; cursor:pointer
-    }
-    button:hover{background:var(--brand-600)}
-
-    /* Rodapé */
-    footer{border-top:1px solid rgba(13,71,161,.08); background:#f8fbff}
-    .foot{max-width:1100px; margin:0 auto; padding:22px 20px; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:14px; color:var(--muted)}
-
-    /* Responsividade */
-    @media (max-width: 900px){
-      .hero-inner{grid-template-columns:1fr}
-      .grid{grid-template-columns:1fr}
-      .contact{grid-template-columns:1fr}
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
     }
   </style>
 </head>
 <body>
-  <header>
-    <nav class="nav">
-      <a href="#home" class="brand">
-        <div class="logo" aria-hidden="true">BL</div>
-        <div>
-          <h1>Bahea Lava‑Rápido</h1>
-          <small>Lavagem automotiva profissional</small>
-        </div>
-      </a>
-      <div style="display:flex; align-items:center; gap:16px">
-        <a class="link" href="#precos">Preços</a>
-        <a class="link" href="#horarios">Horários</a>
-        <a class="link" href="#contato">Contato</a>
-        <a class="cta" href="#contato" aria-label="Entrar em contato">Agendar agora</a>
-      </div>
-    </nav>
-  </header>
-
-  <main id="home" class="hero">
-    <div class="hero-inner">
-      <div>
-        <h2>Seu veículo impecável, com atendimento sério e pontual.</h2>
-        <p>Na <strong>Bahea Lava‑Rápido</strong> usamos processos de qualidade para garantir brilho e proteção em carros e motos, sempre nas cores da confiança: Tom e Rodrigues.</p>
-        <div class="badges" aria-label="Destaques">
-          <span class="badge">Equipe especializada</span>
-          <span class="badge">Produtos de qualidade</span>
-          <span class="badge">Entrega no horário</span>
-        </div>
-      </div>
-      <aside class="hero-card" id="horarios" aria-label="Horários de funcionamento">
-        <h3>Horários de funcionamento</h3>
-        <div class="hours">
-          <div>Segunda a Sexta</div>
-          <span>07:00 – 18:00</span>
-          <div>Sábado</div>
-          <span>08:00 – 11:00</span>
-          <div>Domingo</div>
-          <span>Fechado</span>
-        </div>
-        <p style="margin:14px 0 0; color:var(--muted)">Chegue sem agendar ou fale com a gente para reservar um horário.</p>
-      </aside>
-    </div>
-  </main>
-
-  <section id="precos">
-    <h3 class="section-title">Serviços & Preços</h3>
-    <p class="section-sub">Transparência total: você sabe exatamente o que está pagando.</p>
-    <div class="grid" role="list">
-      <article class="card" role="listitem">
-        <h4>Lavada simples (carro)</h4>
-        <div class="price">R$ 100</div>
-        <ul>
-          <li>Lavação externa completa</li>
-          <li>Secagem e acabamento rápido</li>
-          <li>Pretinho nos pneus</li>
-        </ul>
-      </article>
-
-      <article class="card" role="listitem">
-        <h4>Lavada detalhada (carro)</h4>
-        <div class="price">R$ 200</div>
-        <ul>
-          <li>Externo + limpeza interna</li>
-          <li>Higienização de painéis e cantos</li>
-          <li>Finalização caprichada</li>
-        </ul>
-      </article>
-
-      <article class="card" role="listitem">
-        <h4>Lavada simples (moto)</h4>
-        <div class="price">R$ 45</div>
-        <ul>
-          <li>Lavagem externa e secagem</li>
-          <li>Detalhe rápido nas rodas</li>
-          <li>Acabamento básico</li>
-        </ul>
-      </article>
-
-      <article class="card" role="listitem">
-        <h4>Lavada detalhada (moto)</h4>
-        <div class="price">R$ 80</div>
-        <ul>
-          <li>Lavagem completa + detalhes finos</li>
-          <li>Finalização com brilho</li>
-          <li>Verificação visual</li>
-        </ul>
-      </article>
-    </div>
-  </section>
-
-  <section id="contato" class="contact">
-    <div class="panel">
-      <h3 class="section-title">Fale com a gente</h3>
-      <p class="section-sub">Tire dúvidas ou solicite um agendamento.</p>
-      <form onsubmit="event.preventDefault(); alert('Mensagem enviada! Entraremos em contato.');">
-        <label for="nome">Nome</label>
-        <input id="nome" name="nome" placeholder="Seu nome" required />
-
-        <label for="tel">Telefone / WhatsApp</label>
-        <input id="tel" name="tel" placeholder="(00) 90000-0000" value="(77) 9 9820-4246" />
-
-        <label for="msg">Mensagem</label>
-        <textarea id="msg" name="msg" placeholder="Como podemos ajudar?"></textarea>
-
-        <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap">
-          <button type="submit">Enviar mensagem</button>
-          <a class="cta" href="https://wa.me/5577998204246" target="_blank">Falar no WhatsApp</a>
-        </div>
-      </form>
-    </div>
-    <aside class="panel" aria-label="Localização">
-      <h3 class="section-title" style="margin-bottom:6px">Onde estamos</h3>
-      <p class="section-sub" style="margin-top:0">Adicione seu endereço aqui para facilitar a chegada.</p>
-      <div style="height:240px; border-radius:12px; border:1px dashed rgba(13,71,161,.35); display:grid; place-items:center; color:var(--muted);">
-        <div>
-          <strong>Mapa</strong>
-          <div style="font-size:.95rem">Insira um iframe do Google Maps</div>
-        </div>
-      </div>
-      <ul style="list-style:none; padding:0; margin:14px 0 0; color:var(--muted)">
-        <li><strong>Telefone:</strong> (77) 9 9820-4246</li>
-        <li><strong>E‑mail:</strong> evertonsantanasantos91@gmail.com</li>
-        <li><strong>Endereço:</strong> Rua Campo Grande, Jardim Panorama, nº 238</li>
-      </ul>
-    </aside>
-  </section>
-
-  <footer>
-    <div class="foot">
-      <div>© <span id="year"></span> Bahea Lava‑Rápido. Todos os direitos reservados.</div>
-      <div>Tom & Rodrigues • Atendimento sério • Qualidade garantida</div>
-    </div>
-  </footer>
+  <h1>🎉 Parabéns! Você ganhou na Mega-Sena! 🎉</h1>
+  <canvas id="fireworks"></canvas>
 
   <script>
-    // Atualiza ano automaticamente
-    document.getElementById('year').textContent = new Date().getFullYear();
+    const canvas = document.getElementById("fireworks");
+    const ctx = canvas.getContext("2d");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    class Firework {
+      constructor(x, y, colors) {
+        this.x = x;
+        this.y = y;
+        this.colors = colors;
+        this.particles = [];
+        for (let i = 0; i < 100; i++) {
+          this.particles.push({
+            x: x,
+            y: y,
+            radius: Math.random() * 2,
+            color: colors[Math.floor(Math.random() * colors.length)],
+            angle: Math.random() * 2 * Math.PI,
+            speed: Math.random() * 5 + 2,
+            alpha: 1
+          });
+        }
+      }
+
+      update() {
+        this.particles.forEach(p => {
+          p.x += Math.cos(p.angle) * p.speed;
+          p.y += Math.sin(p.angle) * p.speed;
+          p.alpha -= 0.01;
+        });
+      }
+
+      draw() {
+        this.particles.forEach(p => {
+          ctx.globalAlpha = p.alpha;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.radius, 0, 2 * Math.PI);
+          ctx.fillStyle = p.color;
+          ctx.fill();
+        });
+        ctx.globalAlpha = 1;
+      }
+    }
+
+    const fireworks = [];
+    const colors = ["red", "orange", "yellow", "lime", "cyan", "blue", "magenta", "white"];
+
+    function loop() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      if (Math.random() < 0.05) {
+        fireworks.push(new Firework(Math.random() * canvas.width, Math.random() * canvas.height, colors));
+      }
+      fireworks.forEach((f, i) => {
+        f.update();
+        f.draw();
+        if (f.particles.every(p => p.alpha <= 0)) {
+          fireworks.splice(i, 1);
+        }
+      });
+      requestAnimationFrame(loop);
+    }
+
+    loop();
   </script>
 </body>
 </html>
